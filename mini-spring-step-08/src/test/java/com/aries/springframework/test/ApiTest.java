@@ -23,12 +23,11 @@ public class ApiTest {
         applicationContext.registerShutdownHook();
 
         UserService userService = applicationContext.getBean("userService", UserService.class);
-        System.out.println(userService.queryUserInfo());
-    }
+        System.out.println("测试结果：" +userService.queryUserInfo()  );
 
-    @Test
-    public void test_hood() {
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> System.out.println("close!")));
+
+        System.out.println("ApplicationContextAware："+userService.getApplicationContext());
+        System.out.println("BeanFactoryAware："+userService.getBeanFactory());
     }
 
 
